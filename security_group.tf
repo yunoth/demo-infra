@@ -2,7 +2,6 @@ resource "aws_security_group" "alb-sg" {
   name        = "alb-sg"
   description = "Allow TLS inbound traffic"
   vpc_id      = module.vpc.vpc_id
-
   tags = {
     Name = "alb-sg"
   }
