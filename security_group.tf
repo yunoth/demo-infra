@@ -28,7 +28,7 @@ resource "aws_security_group_rule" "alb-rule" {
   type              = "ingress"
   from_port         = 443
   to_port           = 443
-  protocol          = "HTTPS"
+  protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.alb-sg.id
 }
@@ -36,7 +36,7 @@ resource "aws_security_group_rule" "instance-rule" {
   type              = "ingress"
   from_port         = 8080
   to_port           = 8080
-  protocol          = "HTTP"
+  protocol          = "tcp"
   source_security_group_id = aws_security_group.alb-sg.id
   security_group_id = aws_security_group.instance-sg.id
 }
